@@ -1,9 +1,14 @@
 .textos1{
     font-weight: bold !important;
+    color: #AD3A6E !important;
+}
+.fundo
+{
+    background-Color: #F186B7;
 }
 
 .imagem{
-    background-image: url(https://imgur.com/tZk6Qnq.jpg);
+    background-image: url(https://imgur.com/clEEpVN.jpg);
     background-repeat: no-repeat;
     width: 200vh;
     min-height: 150vh;
@@ -13,4 +18,14 @@
 }
 .text-decorator-none{
     text-decoration: none;
+}
+.botao1{
+    border-Color: white;
+    background-Color: #AD3A6E;
+    color:white;
+} 
+.caixa{
+    border-Color: white;
+    background-Color: #AD3A6E;
+    color:white;
 }
