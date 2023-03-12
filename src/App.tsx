@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './componetes/estaticos/footer/Footer';
 import Footer from './componetes/estaticos/navbar/Navbar';
-import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
+import CadastroUsuario from './paginas/cadastro/Cadastro';
 import ListaTema from './componetes/postagens/listapostagem/ListaPostagem';
 import ListaPostagem from './componetes/temas/listatema/ListaTema';
 import Home from './paginas/home/Home';
@@ -24,7 +24,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
 
-        <Route path="/cadastrousuario" element={<CadastroUsuario />} />
+        <Route path="/cadastro" element={<CadastroUsuario />} />
 
         <Route path="/temas" element={<ListaTema />} />
 
