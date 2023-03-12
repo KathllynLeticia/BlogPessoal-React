@@ -2,11 +2,11 @@ import React, { ChangeEvent, useEffect, useState} from 'react';
 import { Grid, Typography, Button, TextField } from '@material-ui/core';
 import { Box } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import './Cadastro.css';
-import { cadastro } from '../../services/Service';
+import './CadastroUsuario.css';
+import { cadastroUsuario } from '../../services/Service';
 import User from '../../models/User';
 
-function Cadastro() {
+function CadastroUsuario() {
 
     let navigate = useNavigate();
     const [confirmarSenha,setConfirmarSenha] = useState<String>("")
@@ -49,7 +49,7 @@ function Cadastro() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if(confirmarSenha == user.senha){
-        cadastro(`/usuarios/cadastrar`, user, setUserResult)
+        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
         alert('Usuario cadastrado com sucesso')
         }else{
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
@@ -86,4 +86,4 @@ function Cadastro() {
     );
 }
 
-export default Cadastro;
+export default CadastroUsuario;

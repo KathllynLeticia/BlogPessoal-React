@@ -1,16 +1,32 @@
 import React from 'react';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import {Typography,Grid } from '@material-ui/core';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import {Typography, Grid } from '@material-ui/core';
 import {Box} from '@mui/material';
 import './Footer.css'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { useNavigate } from 'react-router-dom';
+import { addToken } from '../../../store/tokens/Actions';
 
 function Footer() {
-    return (
-        <>
-            <Grid container direction="row" justifyContent="center" alignItems="center">
+    
+        const token = useSelector<TokenState, TokenState["tokens"]>(
+            (state) => state.tokens
+        );
+        let navigate = useNavigate();
+        const dispatch = useDispatch();
+    
+        function goLogout() {
+            dispatch(addToken(''));
+            alert("Usuário deslogado");
+            navigate("/login");
+        }
+    
+        var footercomponent
+        if(token !=""){
+            footercomponent = <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
                     <Box className = "box1">
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
@@ -40,8 +56,12 @@ function Footer() {
                     </Box>
                 </Grid>
             </Grid>
-        </>
-    )
+}
+return (
+    <>
+    {footercomponent}
+    </>
+)
 }
 
 export default Footer;
