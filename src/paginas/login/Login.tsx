@@ -3,7 +3,7 @@ import { Grid, Typography, TextField, Button } from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
-import { api } from '../../services/Service';
+import { login } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
 
@@ -33,20 +33,21 @@ function Login() {
                 }
             }, [token])
 
-        async function onSubmit(e: ChangeEvent<HTMLFormElement>){
-            e.preventDefault();
-            try{
-                const resposta = await api.post(`/usuarios/logar`, userLogin)
-                setToken(resposta.data.token)
-
-                alert('Usuário logado com sucesso!');
-            }catch(error){
-                alert('Dados do usuário inconsistentes. Erro ao logar!');
+            async function onSubmit(e: ChangeEvent<HTMLFormElement>){
+                e.preventDefault();
+                try{
+                    await login(`/usuarios/logar`, userLogin, setToken)
+    
+                    alert('Usuário logado com sucesso!');
+                }catch(error){
+                    alert('Dados do usuário inconsistentes. Erro ao logar!');
+                }
             }
-        }
+    
+
 
     return (
-         <Grid container direction='row' justifyContent='center' alignItems='center' className="fundo">
+        <Grid container direction='row' justifyContent='center' alignItems='center' className="fundo">
             <Grid alignItems='center' xs={6}>
                 <Box paddingX={20}>
                     <form>
