@@ -4,7 +4,7 @@ import Postagem from '../../../models/Postagem';
 import { busca } from '../../../services/Service'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaPostagem.css';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { TokenState } from '../../../store/tokens/TokensReducer';
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 

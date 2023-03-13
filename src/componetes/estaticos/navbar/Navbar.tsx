@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { TokenState } from '../../../store/tokens/TokensReducer';
 import { useDispatch } from "react-redux";
 import { addToken } from '../../../store/tokens/Actions';
 import { Box } from '@mui/material';
+import {toast} from 'react-toastify';
 
 function Navbar() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
@@ -18,10 +19,18 @@ function Navbar() {
 
     function goLogout() {
         dispatch(addToken(''));
-        alert("Usuário deslogado")
+        toast.info('Usuário deslogado', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+        });
         navigate('/login')
     }
-
     var navbarComponent;
 
     if (token != "") {
@@ -70,8 +79,8 @@ function Navbar() {
                     </Box>
 
                 </Box>
-                </Toolbar>
-    </AppBar>
+            </Toolbar>
+        </AppBar>
     }
     return (
         <>

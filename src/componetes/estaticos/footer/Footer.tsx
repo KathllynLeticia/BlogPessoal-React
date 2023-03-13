@@ -6,7 +6,7 @@ import {Typography, Grid } from '@material-ui/core';
 import {Box} from '@mui/material';
 import './Footer.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { TokenState } from '../../../store/tokens/TokensReducer';
 import { useNavigate } from 'react-router-dom';
 import { addToken } from '../../../store/tokens/Actions';
 
